@@ -1,0 +1,234 @@
+.header {
+  background: #1ac87e;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.toggle-nav-wrapper {
+  *zoom: 1;
+}
+.toggle-nav-wrapper:before,
+.toggle-nav-wrapper:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.toggle-nav-wrapper:after {
+  clear: both;
+}
+.toggle-nav-wrapper h3 {
+  display: none;
+}
+.toggle-nav-wrapper nav ul {
+  list-style: none;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  *zoom: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding-left: 0px;
+}
+.toggle-nav-wrapper nav ul:before,
+.toggle-nav-wrapper nav ul:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.toggle-nav-wrapper nav ul:after {
+  clear: both;
+}
+.toggle-nav-wrapper nav ul ul {
+  border-top: 0px;
+}
+.toggle-nav-wrapper nav li {
+  float: left;
+  position: relative;
+}
+.toggle-nav-wrapper nav li .toggle-sub {
+  display: none;
+  border-bottom: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.toggle-nav-wrapper nav li ul {
+  display: none;
+}
+.toggle-nav-wrapper nav a {
+  color: #fff;
+  display: block;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+.toggle-nav-wrapper nav a:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+/* Hover dropdown */
+@media only screen and (min-width: 769px) {
+  .toggle-nav-wrapper nav li.has-child:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .toggle-nav-wrapper nav ul a {
+    border-bottom: 0px;
+  }
+  .toggle-nav-wrapper nav li.has-child:hover > ul {
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 240px;
+  }
+  .toggle-nav-wrapper nav li.has-child:hover > ul li {
+    clear: both;
+    width: 100%;
+  }
+  .toggle-nav-wrapper nav li.has-child:hover > ul li.has-child:hover > ul {
+    top: 0px;
+    left: 100%;
+  }
+}
+.lt-ie9 .toggle-nav-wrapper nav li.has-child:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.lt-ie9 .toggle-nav-wrapper nav ul a {
+  border-bottom: 0px;
+}
+.lt-ie9 .toggle-nav-wrapper nav li.has-child:hover > ul {
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 240px;
+}
+.lt-ie9 .toggle-nav-wrapper nav li.has-child:hover > ul li {
+  clear: both;
+  width: 100%;
+}
+.lt-ie9 .toggle-nav-wrapper nav li.has-child:hover > ul li.has-child:hover > ul {
+  top: 0px;
+  left: 100%;
+}
+/* In this sample, we are just using the max-width 768px to simplify the code.
+   It'll be working on iPhone too.
+   Please note, that you have to add special media queries for the specific cases, if you wish so! */
+@media only screen and (max-width: 768px) {
+  /* Here again. The important part */
+  .toggle-nav-wrapper h3 {
+    display: block;
+    cursor: pointer;
+    text-align: right;
+    background: url('hamburger-white.png') no-repeat;
+    background-position: center right 25px;
+    padding: 0 25px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .toggle-nav-wrapper nav {
+    *zoom: 1;
+  }
+  .toggle-nav-wrapper nav:before,
+  .toggle-nav-wrapper nav:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  .toggle-nav-wrapper nav:after {
+    clear: both;
+  }
+  .toggle-nav-wrapper nav ul {
+    display: none;
+    padding-left: 0px;
+    clear: both;
+  }
+  .toggle-nav-wrapper nav.active {
+    display: block;
+  }
+  .toggle-nav-wrapper nav li {
+    display: block;
+    float: none;
+    overflow: hidden;
+  }
+  .toggle-nav-wrapper nav li a {
+    border-right: 0;
+    padding-right: 30px;
+    border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+  }
+  .toggle-nav-wrapper nav li.has-child a {
+    float: left;
+    width: 100%;
+  }
+  .toggle-nav-wrapper nav li.has-child a.toggle-sub {
+    display: block;
+    position: absolute;
+    right: 0;
+    float: right;
+    width: 20px;
+    background: url('chevron-down.png') center center no-repeat;
+  }
+  .toggle-nav-wrapper nav li.has-child a.toggle-sub.open {
+    background: url('chevron-up.png') center center no-repeat;
+  }
+  .toggle-nav-wrapper nav li.selected > a {
+    position: relative;
+  }
+  .toggle-nav-wrapper nav li.selected > a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top: -4px;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+  }
+  .toggle-nav-wrapper nav li .has-child.selected a.toggle-sub {
+    position: absolute;
+    z-index: 300;
+  }
+  .toggle-nav-wrapper nav li .has-child.selected a.toggle-sub:before {
+    display: none;
+  }
+  .toggle-nav-wrapper nav li ul {
+    display: none;
+    position: static;
+    width: 100%;
+    *zoom: 1;
+  }
+  .toggle-nav-wrapper nav li ul:before,
+  .toggle-nav-wrapper nav li ul:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  .toggle-nav-wrapper nav li ul:after {
+    clear: both;
+  }
+  .toggle-nav-wrapper nav li:hover ul {
+    display: none;
+  }
+  .toggle-nav-wrapper nav li:hover ul li {
+    float: none;
+    text-align: left;
+  }
+  /* Fallback */
+  .no-js #navigation nav {
+    display: block;
+  }
+}

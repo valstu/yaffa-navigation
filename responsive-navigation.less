@@ -1,0 +1,258 @@
+@navbarBackGround: #1ac87e;
+.header {
+	background:@navbarBackGround;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.toggle-nav-wrapper {
+	.clearfix();
+	h3 {
+		display: none;
+	}
+	
+	nav {
+		
+		ul {
+			list-style: none;
+			width: 100%;
+			background:rgba(0,0,0,.2);
+			.clearfix();
+			margin-left: 0px;
+			border-top: 1px solid rgba(0,0,0,.2);
+			margin-bottom: 0px;
+			margin-left: 0px;
+			margin-top: 0px;
+			padding-left: 0px;
+			ul {
+				border-top: 0px;
+			}
+		}
+
+		li {
+			float: left;
+			position: relative;
+			
+			.toggle-sub {
+				display: none;
+				border-bottom: 0px;
+				background: rgba(0,0,0,.1);
+				border-left: 1px solid rgba(0,0,0,.2);
+				border-bottom: 1px solid transparent;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			
+			ul {
+				display: none;
+			}
+		}
+		
+
+		a {
+			color: #fff;
+			display: block;
+			padding: 10px 20px;
+			border-bottom: 1px solid rgba(0,0,0,.2);
+			text-decoration: none;
+
+			&:hover {
+				background:rgba(0,0,0,.2);
+			}
+		}
+	}
+}
+
+/* Hover dropdown */
+@media only screen and (min-width: 769px) {
+.toggle-nav-wrapper {
+	nav {
+		li.has-child:hover {
+			background: rgba(0,0,0,.2);
+		}
+		ul a {
+			border-bottom: 0px;
+		}
+		li.has-child:hover > ul {
+			display: block;
+			position: absolute;
+			top: 100%;
+			width: 240px;
+			li {
+				clear: both;
+				width: 100%;
+			}
+			li.has-child:hover > ul {
+				top: 0px;
+				left: 100%;
+			}
+		}
+	}
+}
+}
+.lt-ie9 {
+	.toggle-nav-wrapper {
+		nav {
+			li.has-child:hover {
+				background: rgba(0,0,0,.2);
+			}
+			ul a {
+				border-bottom: 0px;
+			}
+			li.has-child:hover > ul {
+				display: block;
+				position: absolute;
+				top: 100%;
+				width: 240px;
+				li {
+					clear: both;
+					width: 100%;
+				}
+				li.has-child:hover > ul {
+					top: 0px;
+					left: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+/* In this sample, we are just using the max-width 768px to simplify the code.
+   It'll be working on iPhone too.
+   Please note, that you have to add special media queries for the specific cases, if you wish so! */
+
+@media only screen and (max-width: 768px) {
+
+/* Here again. The important part */
+	.toggle-nav-wrapper {
+		h3 {
+			display: block;
+			cursor: pointer;
+			text-align: right;
+			background: url('hamburger-white.png') no-repeat;
+			background-position: center right 25px;
+			padding: 0 25px;
+			text-indent: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+
+			&.active {
+				//background: url('../img/hamburger-white.png') 90% no-repeat;
+			}
+		}
+		
+		nav {
+
+			.clearfix();
+			
+			ul {
+				display: none;
+				padding-left: 0px;
+				clear: both;
+			}
+			
+			&.active {
+				display: block;
+			}
+
+				li {
+					display: block;
+					float: none;
+					overflow: hidden;
+					
+					a {
+						border-right: 0;
+						padding-right: 30px;
+						border-bottom: 1px rgba(0,0,0,.2) solid;
+					}
+
+					&.has-child {
+						a {
+							float: left;
+							width: 100%;
+							
+							&.toggle-sub {
+								display: block;
+								position: absolute;
+								right: 0;
+								float: right;
+								width: 20px;
+								background: url('chevron-down.png') center center no-repeat;
+								
+								&.open {
+									background: url('chevron-up.png') center center no-repeat;
+								}
+							}
+						}
+					}
+					&.selected > a {
+						position: relative;
+						&:before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: 0px;
+							margin-top: -4px;
+							border-style: solid;
+							border-width: 5px 0 5px 5px;
+							border-color: transparent #FFFFFF;
+							display: block;
+							width: 0;
+							z-index: 1;
+						}
+					}
+					.has-child.selected a.toggle-sub {
+						position: absolute;
+						z-index: 300;
+						&:before {
+							display: none;
+						}
+					} 
+
+					ul {
+						display: none;
+						position: static;
+						width: 100%;
+						.clearfix();
+					}
+
+					&:hover {
+						ul {
+							display: none;
+
+							li {
+								float: none;
+								text-align: left;
+							}
+						}
+					}
+				}
+			}
+		}
+
+/* Fallback */
+	.no-js {
+		#navigation {
+			nav {
+				display: block;
+			}
+		}		
+	}
+}
